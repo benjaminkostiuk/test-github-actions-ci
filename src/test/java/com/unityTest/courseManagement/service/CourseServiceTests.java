@@ -80,7 +80,7 @@ class CourseServiceTests {
 	void getCourses_Valid_ReturnCourseList() {
 		Page<Course> page = new PageImpl<>(courseList);
 		when(this.courseRepository.findAll(any(Specification.class), any(Pageable.class))).thenReturn(page);
-		assertEquals(courseList, courseService.getCourses(1, "COMPSCI 1JC3", 2, Term.WINTER, 2000));
+		assertEquals(courseList, courseService.getCourses(1, "COMPSCI 1JC3", 1, Term.WINTER, 2000));
 	}
 
 	/**

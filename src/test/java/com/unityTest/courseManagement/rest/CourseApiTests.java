@@ -72,7 +72,7 @@ class CourseApiTests {
 		int courseId = JsonPath.read(result.getResponse().getContentAsString(), "$.id");
 		courseToCreate.setId(courseId);
 		// Verify in repository
-		assertThat(courseRepository.findAll()).hasSize(0);
+		assertThat(courseRepository.findAll()).hasSize(1);
 		assertEquals(courseRepository.findAll().get(0), courseToCreate);
 	}
 

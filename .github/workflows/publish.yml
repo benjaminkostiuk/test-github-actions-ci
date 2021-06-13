@@ -2,7 +2,7 @@ name: Publish Maven Package
 
 on:
   workflow_run:
-    workflows: ["Build & Test"]
+    workflows: ["build-test"]
     types:
       - completed
 

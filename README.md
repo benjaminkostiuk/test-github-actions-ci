@@ -20,7 +20,7 @@
 
 # Course-management
 
-[![Build](https://github.com/benjaminkostiuk/test-github-actions-ci/actions/workflows/build.yml/badge.svg)](https://github.com/benjaminkostiuk/test-github-actions-ci/actions/workflows/build.yml)
+[![Build & Tests](https://img.shields.io/github/workflow/status/benjaminkostiuk/test-github-actions-ci/Build%20&%20Test?label=build%20%26%20tests)](https://github.com/benjaminkostiuk/test-github-actions-ci/actions/workflows/build.yml)
 
 Spring-boot microservice managing courses, assignments and user actions for the puff platform. For the full overview of the puff project see the [docs repository](https://github.com/puffproject/docs).
 

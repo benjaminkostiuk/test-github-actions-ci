@@ -24,6 +24,11 @@ jobs:
         with:
           java-version: '1.8'
       - name: Run tests
-        run: mvn -B -U --no-transfer-progress --file pom.xml verify
+        run: mvn -B -U --no-transfer-progress --file pom.xml -P coverage verify
+      - name: Generate code coverage badge
+        uses: codecov/codecov-action@v1
+        with:
+          file: /**/target/site/jacoco/jacoco.xml
+          name: codecov
       
 

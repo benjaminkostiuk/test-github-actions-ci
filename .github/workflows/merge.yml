@@ -1,0 +1,17 @@
+name: Bump package version
+
+# only trigger on pull request closed events
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  increment_version:
+    # this job will only run if the PR has been merged
+    if: gthub.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run merge script
+      run: |
+        echo PR #${{ github.event.number }} has been merged

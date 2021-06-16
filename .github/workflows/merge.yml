@@ -1,4 +1,4 @@
-name: Bump package version
+name: Bump Package Version
 
 # only trigger on pull request closed events
 on:
@@ -8,7 +8,7 @@ on:
 jobs:
   increment_version:
     # this job will only run if the PR has been merged
-    if: gthub.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

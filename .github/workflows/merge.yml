@@ -1,4 +1,4 @@
-name: Bump package version
+name: Bump Package Version
 
 # only trigger on pull request closed events
 on:

@@ -20,5 +20,7 @@ jobs:
             echo "pom.xml version must contain 'SNAPSHOT'" 
           fi
       - name: Validate source file formatting
-        run: mvn -B -U --no-transfer-progress --file pom.xml formatter:validate
+        run: |
+          mvn -B -U --no-transfer-progress --file pom.xml formatter:format
+          mvn -B -U --no-transfer-progress --file pom.xml formatter:validate
 

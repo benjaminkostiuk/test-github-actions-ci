@@ -209,6 +209,7 @@
 				<configuration>
 					<configFile>${project.basedir}/style.xml</configFile>
 					<encoding>UTF-8</encoding>
+					<lineEnding>KEEP</lineEnding>
 				</configuration>
 				<executions>
 					<execution>

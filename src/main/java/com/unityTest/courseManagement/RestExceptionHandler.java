@@ -103,7 +103,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
 	/**
 	 * Handle NoHandlerFoundException. Thrown when no handler exists for an endpoint. TODO IMPLEMENT
-	 * NOTE: NOT CURRENTLY IMPLEMENTED
+	 * HANDLER
+	 * 
 	 *
 	 * @param ex NoHandlerFoundException
 	 * @param headers HttpHeaders

@@ -15,7 +15,7 @@ jobs:
     - name: Run merge script
       run: |
         echo PR #${{ github.event.number }} has been merged
-        mvn -B -U --no versions:set -DnewVersion=0.1.2-SNAPSHOT
+        mvn -B -U --no-transfer-progress versions:set -DnewVersion=0.1.2-SNAPSHOT
     - name: Commit new pom version
       uses: stefanzweifel/git-auto-commit-action@v4
       with:

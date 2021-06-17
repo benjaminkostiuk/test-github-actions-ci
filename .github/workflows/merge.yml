@@ -3,6 +3,8 @@ name: Bump Package Version
 # only trigger on pull request closed events
 on:
   pull_request:
+    branches:
+      - master
     types: [ closed ]
 
 jobs:
@@ -11,12 +13,34 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
+      # Checkout head of pr 
     - uses: actions/checkout@v2
-    - name: Run merge script
-      run: |
-        echo PR #${{ github.event.number }} has been merged
-        mvn -B -U --no-transfer-progress versions:set -DnewVersion=0.1.2-SNAPSHOT
-    - name: Commit new pom version
-      uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Bump commit version
+        ref: ${{ github.head_ref }}
+    # Get maven pom version, preserving version as env variable
+    - name: Get pom version in HEAD
+      run: |
+        export MERGE_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
+        echo "::set-env name=MERGE_VERSION::$MERGE_VERSION"
+    # Checkout master branch
+    - uses: actions/checkout@v2
+      with:
+        ref: master
+    # Get maven pom version on master
+    - name: Get pom version on master
+      run: |
+        export MASTER_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
+        echo "::set-env name=MASTER_VERSION::$MASTER_VERSION"
+
+    - name: Run version bump script
+      run: ./.github/scripts/bumpVersion.sh $MERGE_VERSION $MASTER_VERSION
+
+    # Commit bumped version
+    # - name: Run merge script
+    #   run: |
+    #     echo PR #${{ github.event.number }} has been merged
+    #     mvn -B -U --no-transfer-progress versions:set -DnewVersion=0.1.2-SNAPSHOT
+    # - name: Commit new pom version
+    #   uses: stefanzweifel/git-auto-commit-action@v4
+    #   with:
+    #     commit_message: Bump commit version

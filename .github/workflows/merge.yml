@@ -33,7 +33,7 @@ jobs:
         echo "MASTER_VERSION=$MASTER_VERSION" >> $GITHUB_ENV
 
     - name: Run version bump script
-      run: ./.github/scripts/bumpVersion.sh "${{ env.MERGE_VERSION }}" "${{ env.MASTER_VERSION }}"
+      run: ./.github/scripts/bumpVersion.sh "${{ env.MERGE_VERSION }}" "${{ env.MASTER_VERSION }}" "${{ github.head_ref }}"
 
     # Commit bumped version
     # - name: Run merge script

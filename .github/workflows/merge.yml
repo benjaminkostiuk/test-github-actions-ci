@@ -25,6 +25,7 @@ jobs:
     # Checkout master branch
     - uses: actions/checkout@v2
       with:
+        token: ${{ secrets.BUMP_VERSION_PAT }}
         ref: master
     # Get maven pom version on master
     - name: Get pom version on master
@@ -42,6 +43,5 @@ jobs:
     - name: Commit new pom version
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        token: ${{ secrets.BUMP_VERSION_PAT }}
         commit_message: Bump pom version
         branch: master

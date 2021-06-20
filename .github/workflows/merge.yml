@@ -1,6 +1,6 @@
 name: Bump Package Version
 
-# only trigger on pull request closed events
+# only trigger on pull request closed pull_request events
 on:
   pull_request:
     branches:

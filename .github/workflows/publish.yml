@@ -2,8 +2,8 @@ name: Publish Maven Package
 
 on:
   workflow_run:
-    workflows: ["Build & Test"]
-    branches: [master]
+    workflows: ["Bump Package Version"]
+    branches: [*]
     types:
       - completed
   workflow_dispatch:

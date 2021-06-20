@@ -36,7 +36,7 @@ jobs:
     - name: Run version bump script and update pom.xml
       run: |
         NEW_VERSION=$(./.github/scripts/bumpVersion.sh "${{ env.MERGE_VERSION }}" "${{ env.MASTER_VERSION }}" "${{ github.head_ref }}")
-        mvn -B -U --no-transfer-progress versions:set -DnewVersion=$NEWVERSION
+        mvn -B -U --no-transfer-progress versions:set -DnewVersion=$NEW_VERSION
 
     # Commit bumped version
     - name: Commit new pom version

@@ -42,5 +42,6 @@ jobs:
     - name: Commit new pom version
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
+        token: ${{ secrets.BUMP_VERSION_PAT }}
         commit_message: Bump pom version
         branch: master

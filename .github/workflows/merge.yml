@@ -25,7 +25,7 @@ jobs:
     # Checkout master branch
     - uses: actions/checkout@v2
       with:
-        token: ${{ secrets.BUMP_VERSION_PAT }}
+        token: ${{ secrets.BUMP_SCRIPT_PAT }}
         ref: master
     # Get maven pom version on master
     - name: Get pom version on master

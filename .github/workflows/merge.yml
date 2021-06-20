@@ -41,5 +41,7 @@ jobs:
     - name: Commit new pom version
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Bump pom version
+        commit_message: Bump pom.xml version
+        commit_user_name: Github Action
+        commit_user_email: actions@github.com
         branch: master

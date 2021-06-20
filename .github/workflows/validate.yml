@@ -22,4 +22,3 @@ jobs:
           fi
       - name: Validate source file formatting
         run: mvn -B -U --no-transfer-progress --file pom.xml formatter:validate
-

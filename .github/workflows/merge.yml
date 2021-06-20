@@ -32,13 +32,11 @@ jobs:
       run: |
         export MASTER_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
         echo "MASTER_VERSION=$MASTER_VERSION" >> $GITHUB_ENV
-
     # Run merge script
     - name: Run version bump script and update pom.xml
       run: |
         NEW_VERSION=$(./.github/scripts/bumpVersion.sh "${{ env.MERGE_VERSION }}" "${{ env.MASTER_VERSION }}" "${{ github.head_ref }}")
         mvn -B -U --no-transfer-progress versions:set -DnewVersion=$NEW_VERSION
-
     # Commit bumped version
     - name: Commit new pom version
       uses: stefanzweifel/git-auto-commit-action@v4

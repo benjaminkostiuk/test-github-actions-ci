@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "Merge Version $1"
-echo "Master Version $2"
-echo "Branch name $3"
+# echo "Merge Version $1"
+# echo "Master Version $2"
+# echo "Branch name $3"
 
 # Do some parsing here
 MASTER_VERSION=$2
@@ -22,7 +22,7 @@ if (( MERGE_MAJOR > MASTER_MAJOR )); then
 # If merge_minor > master_minor do nothing
 elif (( MERGE_MAJOR == MASTER_MAJOR && MERGE_MINOR > MASTER_MINOR )); then
     echo $MERGE_VERSION
-elif [[ $3 == *"develop"* ]]; then
+elif [[ $3 == *"feature"* ]]; then
     # Bump up minor version
     echo "$MASTER_MAJOR.$((++MASTER_MINOR)).0-SNAPSHOT"
 else

@@ -17,13 +17,19 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<keycloak.version>13.0.1</keycloak.version>
+		<project.scm.id>github</project.scm.id>
+		<git.repository>benjaminkostiuk/test-github-actions-ci</git.repository>
 	</properties>
+
+	<scm>
+		<developerConnection>scm:git:https://github.com/${git.repository}.git</developerConnection>
+	</scm>
 
 	<distributionManagement>
 		<repository>
 			<id>github</id>
 			<name>GitHub puff project Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/benjaminkostiuk/test-github-actions-ci</url>
+			<url>https://maven.pkg.github.com/${git.repository}</url>
 		</repository>
 	</distributionManagement>
 
@@ -219,6 +225,13 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.0-M4</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
 		</plugins>
 		<resources>
 			<resource>

@@ -23,7 +23,7 @@ jobs:
           TAG=$(git describe --abbrev=0 --tags)
           echo "TAG=$TAG" >> $GITHUB_ENV
           TAG_VERSION=`echo $TAG | cut -d v -f 2`
-          echo "TAG_VERSION=$TAG_VERSIOn" >> $GITHUB_ENV
+          echo "TAG_VERSION=$TAG_VERSION" >> $GITHUB_ENV
       - name: Create Github release
         uses: actions/create-release@v1
         env:

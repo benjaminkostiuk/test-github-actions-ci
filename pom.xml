@@ -230,6 +230,8 @@
                 <version>3.0.0-M4</version>
                 <configuration>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
+					<scmCommentPrefix>[Github Actions]</scmCommentPrefix>
+					<scmDevelopmentCommitComment>@{prefix} increment pom version after release</scmDevelopmentCommitComment>
                 </configuration>
             </plugin>
 		</plugins>

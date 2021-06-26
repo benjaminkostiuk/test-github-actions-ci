@@ -16,6 +16,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '1.8'
+      - name: Generate changelog
+        id: changelog
+        uses: metcalfc/changelog-generator@v0.4.4
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Tag release commit and push release package
         run: |
           git config --global user.email "actions@github.com"
@@ -37,6 +42,6 @@ jobs:
           tag_name: ${{ env.TAG }}
           release_name: ${{ env.TAG_VERSION }}
           body: |
-            Just testing
+            ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false

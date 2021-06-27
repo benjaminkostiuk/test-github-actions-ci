@@ -15,7 +15,7 @@
 </p>
 
 <blockquote align="center">
-  <em>Puff</em> is an open source smoke testing platform for students to collaboratively write and run tests on their assignment or project code for quick and easy sanity testing.
+  <em>Puff</em> is an open source smoke Some test testing platform for students to collaboratively write and run tests on their assignment or project code for quick and easy sanity testing.
 </blockquote>
 
 # Course-management

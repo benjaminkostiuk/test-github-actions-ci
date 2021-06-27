@@ -5,6 +5,9 @@ on:
   pull_request:
     branches:
       - master
+    paths:
+      - 'src/main/**'
+      - 'pom.xml'
     types: [ closed ]
 
 jobs:
